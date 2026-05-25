@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – PrimalCoach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #09090F;
+      --surface: #111118;
+      --border:  rgba(255,255,255,0.08);
+      --accent:  #EF4444;
+      --text:    #F1F1F3;
+      --muted:   #8B8B9A;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(9,9,15,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-size: 18px; font-weight: 900; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    nav a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; transition: color .2s; }
+    nav a:hover { color: var(--text); }
+
+    /* CONTENT */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 24px 100px;
+    }
+
+    .page-label {
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 900; line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .last-updated {
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 18px; font-weight: 700;
+      color: var(--text);
+      margin: 40px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p { color: var(--muted); margin-bottom: 14px; font-size: 15px; }
+
+    ul {
+      list-style: none;
+      margin: 0 0 14px;
+      padding: 0;
+    }
+    ul li {
+      font-size: 15px; color: var(--muted);
+      padding: 5px 0 5px 20px;
+      position: relative;
+    }
+    ul li::before {
+      content: '–';
+      position: absolute; left: 0;
+      color: var(--accent);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 24px 0;
+    }
+    .card p { margin: 0; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px; color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">Primal<span>Coach</span></a>
+    <a href="/">← Back to home</a>
+  </nav>
+
+  <div class="container">
+    <p class="page-label">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: May 25, 2026</p>
+
+    <div class="card">
+      <p>PrimalCoach ("we", "our", "us") is committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights regarding that information.</p>
+    </div>
+
+    <h2>1. Information We Collect</h2>
+    <p>We collect information you provide directly and information generated automatically when you use PrimalCoach.</p>
+
+    <p><strong style="color: var(--text);">Information you provide:</strong></p>
+    <ul>
+      <li>Display name (optional, used for leaderboard)</li>
+      <li>Country (optional, used for country leaderboard)</li>
+      <li>Apple ID or email address (if you sign in with Apple or email)</li>
+      <li>Selected trainer, fitness preferences, and excluded muscle groups</li>
+    </ul>
+
+    <p><strong style="color: var(--text);">Information generated automatically:</strong></p>
+    <ul>
+      <li>Workout completions, streak count, and progress data</li>
+      <li>App usage patterns (screens viewed, features used)</li>
+      <li>Device type and operating system version</li>
+      <li>Anonymous user identifier</li>
+    </ul>
+
+    <h2>2. Third-Party Services</h2>
+    <p>PrimalCoach uses the following third-party services to provide and improve the app:</p>
+
+    <p><strong style="color: var(--text);">Supabase</strong> — Backend database and authentication. Your workout progress, leaderboard data, and account information are stored on Supabase servers. Supabase is GDPR-compliant. See <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a>.</p>
+
+    <p><strong style="color: var(--text);">RevenueCat</strong> — Subscription and in-app purchase management. RevenueCat processes your purchase receipts to verify subscription status. Your payment details are handled by Apple and are never shared with us directly. See <a href="https://www.revenuecat.com/privacy" target="_blank">revenuecat.com/privacy</a>.</p>
+
+    <p><strong style="color: var(--text);">PostHog</strong> — Product analytics. We use PostHog to understand how users interact with the app (e.g., which screens are visited, where users drop off in onboarding). All analytics data is anonymized and does not include personally identifiable information. See <a href="https://posthog.com/privacy" target="_blank">posthog.com/privacy</a>.</p>
+
+    <p><strong style="color: var(--text);">Apple Sign In</strong> — If you choose to sign in with Apple, Apple may share a private relay email address with us instead of your real email. We store only what Apple provides and use it solely for account identification.</p>
+
+    <h2>3. How We Use Your Information</h2>
+    <ul>
+      <li>To provide and personalize your workout experience</li>
+      <li>To maintain your progress, streak, and leaderboard ranking</li>
+      <li>To verify your subscription status</li>
+      <li>To improve the app based on usage patterns</li>
+      <li>To send optional workout reminders (only if you enable notifications)</li>
+    </ul>
+
+    <h2>4. Data Sharing</h2>
+    <p>We do not sell your personal data. We share data only with the third-party service providers listed above, and only as necessary to operate PrimalCoach.</p>
+    <p>If you choose a display name and opt into the leaderboard, your display name, country flag, trainer, and workout/streak count will be visible to other users.</p>
+
+    <h2>5. Data Retention</h2>
+    <p>Your account data is retained for as long as your account is active. If you delete the app or request account deletion, your leaderboard entry and account data will be removed within 30 days. Analytics data (PostHog) is retained in anonymized form.</p>
+
+    <h2>6. Your Rights</h2>
+    <p>Depending on your location, you may have the right to:</p>
+    <ul>
+      <li>Access the personal data we hold about you</li>
+      <li>Request correction or deletion of your data</li>
+      <li>Object to or restrict certain processing</li>
+      <li>Data portability</li>
+    </ul>
+    <p>To exercise any of these rights, contact us at <a href="mailto:primalcoach.app@gmail.com">primalcoach.app@gmail.com</a>.</p>
+
+    <h2>7. Children's Privacy</h2>
+    <p>PrimalCoach is not directed at children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us so we can delete it.</p>
+
+    <h2>8. Security</h2>
+    <p>We use industry-standard measures to protect your data, including encrypted connections (HTTPS/TLS) and access controls on our backend infrastructure. No system is 100% secure, and we cannot guarantee absolute security.</p>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the date at the top of this page. Continued use of PrimalCoach after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>10. Contact</h2>
+    <p>If you have questions or concerns about this Privacy Policy, please contact us:</p>
+    <div class="card">
+      <p>📧 <a href="mailto:primalcoach.app@gmail.com">primalcoach.app@gmail.com</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 PrimalCoach · <a href="/">Home</a> · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Use</a></p>
+  </footer>
+
+</body>
+</html>

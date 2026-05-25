@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrimalCoach — Your Personal Trainer</title>
+  <meta name="description" content="28-day training plans with a coach that pushes you further. Build strength, track progress, compete worldwide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:      #09090F;
+      --bg2:     #13131C;
+      --surface: #1A1A26;
+      --accent:  #EF4444;
+      --accent2: #F97316;
+      --text:    #FFFFFF;
+      --muted:   #8888AA;
+      --border:  rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(9,9,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 20px; font-weight: 900; color: var(--text);
+      letter-spacing: -0.5px; text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: 10px 22px; border-radius: 50px;
+      font-size: 14px; font-weight: 700; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 40px 80px;
+      max-width: 1200px; margin: 0 auto;
+      gap: 60px;
+    }
+    .hero-text { flex: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(239,68,68,.15); border: 1px solid rgba(239,68,68,.3);
+      color: var(--accent); font-size: 12px; font-weight: 700;
+      padding: 6px 14px; border-radius: 50px; letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -2px; margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p {
+      font-size: 18px; color: var(--muted);
+      max-width: 480px; margin-bottom: 40px; line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--accent); color: #fff;
+      padding: 16px 28px; border-radius: 50px;
+      font-size: 16px; font-weight: 700; text-decoration: none;
+      transition: transform .2s, opacity .2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); opacity: .9; }
+    .btn-primary svg { width: 20px; height: 20px; fill: #fff; }
+    .btn-secondary {
+      display: inline-flex; align-items: center;
+      background: var(--surface); color: var(--text);
+      padding: 16px 28px; border-radius: 50px;
+      font-size: 16px; font-weight: 600; text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color .2s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,.2); }
+
+    .hero-image {
+      flex: 0 0 420px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hero-image::before {
+      content: '';
+      position: absolute; width: 360px; height: 360px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(239,68,68,.18) 0%, transparent 70%);
+    }
+    .hero-image img {
+      width: 340px; height: auto;
+      position: relative; z-index: 1;
+      filter: drop-shadow(0 30px 60px rgba(239,68,68,.2));
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    /* ── Stats row ── */
+    .stats {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 40px;
+    }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-around; flex-wrap: wrap; gap: 24px;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 36px; font-weight: 900; color: var(--accent);
+      letter-spacing: -1px;
+    }
+    .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    /* ── Features ── */
+    .features {
+      padding: 100px 40px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .section-label {
+      text-align: center; font-size: 12px; font-weight: 700;
+      color: var(--accent); text-transform: uppercase; letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      text-align: center; font-size: clamp(28px, 4vw, 44px);
+      font-weight: 900; letter-spacing: -1px; margin-bottom: 60px;
+    }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 36px 32px;
+      transition: border-color .2s, transform .2s;
+    }
+    .feature-card:hover { border-color: rgba(239,68,68,.3); transform: translateY(-4px); }
+    .feature-icon {
+      font-size: 36px; margin-bottom: 20px;
+    }
+    .feature-card h3 {
+      font-size: 20px; font-weight: 800; margin-bottom: 12px;
+    }
+    .feature-card p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+    /* ── Trainers ── */
+    .trainers-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 100px 40px;
+    }
+    .trainers-inner { max-width: 1200px; margin: 0 auto; }
+    .trainers-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px; margin-top: 60px;
+    }
+    .trainer-card {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 20px;
+      padding: 32px 24px; text-align: center;
+      transition: border-color .2s;
+    }
+    .trainer-card:hover { border-color: rgba(239,68,68,.3); }
+    .trainer-emoji { font-size: 48px; margin-bottom: 16px; }
+    .trainer-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+    .trainer-card .trainer-sub { font-size: 12px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .trainer-card p { font-size: 14px; color: var(--muted); }
+
+    /* ── CTA banner ── */
+    .cta-section {
+      padding: 100px 40px;
+      max-width: 800px; margin: 0 auto; text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900; letter-spacing: -1.5px; margin-bottom: 20px;
+    }
+    .cta-section h2 em { font-style: normal; color: var(--accent); }
+    .cta-section p { font-size: 18px; color: var(--muted); margin-bottom: 40px; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .footer-brand { font-size: 15px; font-weight: 700; }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 13px; color: var(--muted); }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; padding: 100px 24px 60px; }
+      .hero p { max-width: 100%; }
+      .hero-btns { justify-content: center; }
+      .hero-image { flex: none; }
+      .hero-image img { width: 240px; }
+      nav { padding: 16px 24px; }
+      .features, .trainers-section, .cta-section { padding: 60px 24px; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Primal<span>Coach</span></a>
+  <a href="#download" class="nav-cta">Download App</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-badge">🔥 Your 28-day plan starts today</span>
+    <h1>Train Smarter.<br><em>Every Single Rep.</em></h1>
+    <p>A personal coach in your pocket. Structured 28-day plans, expert tips on every exercise, and a global leaderboard to keep you accountable.</p>
+    <div class="hero-btns">
+      <a href="#download" class="btn-primary" id="download">
+        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on App Store
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="assets/rocco.png" alt="Rocco — PrimalCoach trainer">
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">28</div>
+      <div class="stat-label">Day structured plan</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Personal coaches</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Days free trial</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">🌍</div>
+      <div class="stat-label">Global leaderboard</div>
+    </div>
+  </div>
+</div>
+
+<!-- Features -->
+<section class="features">
+  <div class="section-label">What makes it different</div>
+  <h2 class="section-title">Built for people who<br>actually show up</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">📋</div>
+      <h3>Your Daily Plan. Always Ready.</h3>
+      <p>No thinking required. Open the app, see your workout for today, and get moving. Your 28-day plan is laid out from day one.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💬</div>
+      <h3>Coached Every Single Rep</h3>
+      <p>Your trainer gives you specific tips on every exercise — form cues, breathing, what to focus on. Like having a PT in your ear.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📈</div>
+      <h3>Track Your 28-Day Journey</h3>
+      <p>See every completed workout on a calendar grid. Watch your streak grow. Get reminded of how far you've already come.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏆</div>
+      <h3>Compete Worldwide</h3>
+      <p>Climb the global leaderboard. Filter by your country. See where you rank against thousands of athletes completing the same plan.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏠</div>
+      <h3>Gym or Home</h3>
+      <p>No gym? No problem. The app adapts every workout to your equipment — resistance bands, dumbbells, or just bodyweight.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔥</div>
+      <h3>Streak System</h3>
+      <p>Build your streak, protect it, grow it. Daily momentum is the real secret to lasting fitness results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Trainers -->
+<section class="trainers-section">
+  <div class="trainers-inner">
+    <div class="section-label">Meet your coaches</div>
+    <h2 class="section-title">Pick your trainer.<br>Start your plan.</h2>
+    <div class="trainers-grid">
+      <div class="trainer-card">
+        <div class="trainer-emoji">🦏</div>
+        <h3>Rocco</h3>
+        <div class="trainer-sub">Strength & Muscle</div>
+        <p>Barbell work, progressive overload, and zero excuses. Rocco builds you strong from the ground up.</p>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-emoji">🐐</div>
+        <h3>Atlas</h3>
+        <div class="trainer-sub">Legs & Core</div>
+        <p>Squat deep, brace hard, move better. Atlas specialises in lower body strength and core stability.</p>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-emoji">🦌</div>
+        <h3>Dash</h3>
+        <div class="trainer-sub">Endurance & Lean</div>
+        <p>High-rep, high-energy. Dash keeps you moving, burning, and building lean muscle without the bulk.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to start your<br><em>28-day challenge?</em></h2>
+  <p>7 days free. Cancel anytime. No equipment needed to get started.</p>
+  <a href="#download" class="btn-primary" style="display:inline-flex;">
+    <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    Download on the App Store
+  </a>
+</section>
+
+<footer>
+  <span class="footer-brand">Primal<span style="color:var(--accent)">Coach</span></span>
+  <div class="footer-links">
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms of Use</a>
+    <a href="mailto:primalcoach.app@gmail.com">Contact</a>
+  </div>
+  <span class="footer-copy">© 2026 PrimalCoach. All rights reserved.</span>
+</footer>
+
+</body>
+</html>
