@@ -52,6 +52,36 @@
     }
     .nav-cta:hover { opacity: .85; }
 
+    /* ── Waitlist banner ── */
+    .waitlist-banner {
+      background: linear-gradient(135deg, rgba(239,68,68,.09) 0%, rgba(249,115,22,.05) 100%);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 60px 40px; text-align: center;
+    }
+    .waitlist-banner-inner { max-width: 560px; margin: 0 auto; }
+    .waitlist-banner .wl-label {
+      font-size: 11px; font-weight: 700; color: var(--accent);
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;
+    }
+    .waitlist-banner h2 {
+      font-size: clamp(24px, 4vw, 38px); font-weight: 900;
+      letter-spacing: -1px; margin-bottom: 12px;
+    }
+    .waitlist-banner p { font-size: 16px; color: var(--muted); margin-bottom: 28px; }
+    .waitlist-banner .wl-perk {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 700; color: var(--accent2);
+      margin-bottom: 28px;
+    }
+    .btn-waitlist {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff;
+      padding: 14px 28px; border-radius: 50px;
+      font-size: 15px; font-weight: 700; text-decoration: none;
+      transition: transform .2s, opacity .2s;
+    }
+    .btn-waitlist:hover { transform: translateY(-2px); opacity: .9; }
+
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
@@ -351,6 +381,17 @@
     </div>
   </div>
 </section>
+
+<!-- Waitlist Banner -->
+<div class="waitlist-banner">
+  <div class="waitlist-banner-inner">
+    <div class="wl-label">🚀 Early access</div>
+    <h2>Be first in line.</h2>
+    <p>Join the waitlist and get 3 months free when we launch. Pre-order available now on the App Store.</p>
+    <div class="wl-perk">🎁 Waitlist members get 3 months free premium</div><br>
+    <a href="/waitlist" class="btn-waitlist">Join the Waitlist →</a>
+  </div>
+</div>
 
 <!-- CTA -->
 <section class="cta-section">
